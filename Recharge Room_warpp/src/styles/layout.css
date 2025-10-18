@@ -1,0 +1,365 @@
+/* The Recharge Room - Enhanced Layout System */
+/* Prevents UI overlaps and ensures beautiful spacing across all screen sizes */
+
+/* Enhanced Grid System with Safe Spacing */
+.recharge-grid {
+  display: grid;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: clamp(1rem, 3vw, 2rem);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.recharge-grid-1 {
+  grid-template-columns: 1fr;
+}
+
+.recharge-grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.recharge-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.recharge-grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Card System with Safe Boundaries */
+.recharge-card {
+  border-radius: 1rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  margin: 0;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all 0.3s ease;
+  max-width: 100%;
+  min-height: fit-content;
+}
+
+.recharge-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+}
+
+/* Prevent Fixed Element Overlaps */
+.recharge-fixed-safe {
+  position: fixed;
+  z-index: 1000;
+}
+
+.recharge-header {
+  height: clamp(4rem, 8vh, 5rem);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.recharge-main-content {
+  margin-top: clamp(4rem, 8vh, 5rem);
+  margin-bottom: clamp(4rem, 8vh, 5rem);
+  min-height: calc(100vh - clamp(8rem, 16vh, 10rem));
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.recharge-bottom-nav {
+  height: clamp(3.5rem, 7vh, 4rem);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Modal and Overlay Safe Positioning */
+.recharge-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 5vw, 3rem);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.recharge-modal-content {
+  max-width: min(95vw, 500px);
+  max-height: min(90vh, 700px);
+  overflow-y: auto;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+/* Responsive Typography with Safe Scaling */
+.recharge-text-hero {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.recharge-text-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.recharge-text-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.recharge-text-body {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  line-height: 1.6;
+}
+
+.recharge-text-small {
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  line-height: 1.5;
+}
+
+/* Interactive Element Safe Zones */
+.recharge-touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+}
+
+.recharge-button {
+  padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+  border-radius: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.recharge-button:focus-visible {
+  outline: 2px solid rgb(147 51 234);
+  outline-offset: 2px;
+}
+
+.recharge-button:active {
+  transform: scale(0.98);
+}
+
+/* Form Elements with Safe Spacing */
+.recharge-form-group {
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+}
+
+.recharge-input {
+  width: 100%;
+  padding: clamp(0.75rem, 2vw, 1rem);
+  border-radius: 0.75rem;
+  border: 2px solid rgb(229 231 235);
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  transition: all 0.3s ease;
+}
+
+.recharge-input:focus {
+  border-color: rgb(147 51 234);
+  box-shadow: 0 0 0 3px rgb(147 51 234 / 0.1);
+  outline: none;
+}
+
+/* Animation Safe Zones */
+.recharge-animate {
+  will-change: transform, opacity;
+}
+
+.recharge-animate-in {
+  animation: rechargeSlideIn 0.6s ease-out;
+}
+
+@keyframes rechargeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glassmorphism with Safe Fallbacks */
+.recharge-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.recharge-glass-strong {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Dark mode adaptations */
+.dark .recharge-glass {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .recharge-glass-strong {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Loading States with Safe Positioning */
+.recharge-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.recharge-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgb(229 231 235);
+  border-top: 3px solid rgb(147 51 234);
+  border-radius: 50%;
+  animation: rechargeSpinning 1s linear infinite;
+}
+
+@keyframes rechargeSpinning {
+  to { transform: rotate(360deg); }
+}
+
+/* Notification System with Safe Positioning */
+.recharge-notification {
+  position: fixed;
+  top: clamp(5rem, 10vh, 6rem);
+  right: 1rem;
+  z-index: 3000;
+  max-width: min(90vw, 400px);
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: rechargeNotificationSlide 0.5s ease-out;
+}
+
+@keyframes rechargeNotificationSlide {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Voice Recording Safe Zones */
+.recharge-voice-zone {
+  position: relative;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.recharge-voice-button {
+  width: clamp(80px, 20vw, 120px);
+  height: clamp(80px, 20vw, 120px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.2);
+}
+
+/* Mobile-First Responsive Breakpoints */
+@media (max-width: 640px) {
+  .recharge-mobile-stack > * {
+    width: 100% !important;
+    margin-bottom: 1rem;
+  }
+  
+  .recharge-mobile-center {
+    text-align: center;
+  }
+  
+  .recharge-mobile-full {
+    margin: 0 -1rem;
+    border-radius: 0;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .recharge-tablet-columns {
+    column-count: 2;
+    column-gap: 2rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .recharge-desktop-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 3rem;
+  }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .recharge-animate,
+  .recharge-spinner,
+  *[animate] {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .recharge-card {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .recharge-fixed-safe,
+  .recharge-bottom-nav,
+  .recharge-modal-overlay {
+    display: none !important;
+  }
+  
+  .recharge-main-content {
+    margin: 0;
+    padding: 1rem;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .recharge-glass,
+  .recharge-glass-strong {
+    background: rgb(255 255 255);
+    border: 2px solid rgb(0 0 0);
+  }
+  
+  .dark .recharge-glass,
+  .dark .recharge-glass-strong {
+    background: rgb(0 0 0);
+    border: 2px solid rgb(255 255 255);
+  }
+}

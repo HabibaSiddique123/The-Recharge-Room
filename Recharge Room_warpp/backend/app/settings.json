@@ -1,0 +1,15 @@
+{
+  "allow_registration": true,
+  "app_description": "Your wellness companion for better mental health and productivity",
+  "app_name": "Recharge Room",
+  "backup_enabled": true,
+  "backup_frequency": "daily",
+  "enable_journal": true,
+  "enable_mood_tracking": true,
+  "enable_rewards": true,
+  "enable_task_management": true,
+  "enable_voice_notes": true,
+  "max_login_attempts": 5,
+  "require_email_verification": false,
+  "session_timeout": 30
+}

@@ -1,0 +1,41 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Backend",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/backend/run.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/backend",
+            "env": {
+                "FLASK_ENV": "development",
+                "FLASK_DEBUG": "1"
+            },
+            "jinja": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Debug Frontend",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/node_modules/.bin/vite",
+            "args": ["--host", "0.0.0.0"],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {
+                "PATH": "C:\\Program Files\\nodejs;${env:PATH}"
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Debug Full App",
+            "configurations": [
+                "Debug Backend",
+                "Debug Frontend"
+            ],
+            "stopAll": true
+        }
+    ]
+}

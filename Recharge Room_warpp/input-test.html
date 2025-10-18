@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Test</title>
+    <style>
+        body {
+            background: linear-gradient(to br, #1e1b4b, #3730a3, #4338ca);
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+        }
+        .form-group {
+            margin: 20px 0;
+            position: relative;
+            z-index: 20;
+        }
+        .input {
+            width: 100%;
+            padding: 12px 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            position: relative;
+            z-index: 20;
+        }
+        .input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+        .input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+            z-index: 10;
+        }
+        .show-hide {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            z-index: 30;
+        }
+        .show-hide:hover {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 Input Test - Recharge Room</h1>
+    <p>Testing if input fields work correctly...</p>
+    
+    <form>
+        <div class="form-group">
+            <label>Email:</label>
+            <div style="position: relative;">
+                <span class="icon">📧</span>
+                <input 
+                    type="email" 
+                    class="input" 
+                    placeholder="Enter your email"
+                    style="position: relative; z-index: 20;"
+                    onkeyup="console.log('Email input:', this.value)"
+                >
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>Password:</label>
+            <div style="position: relative;">
+                <span class="icon">🔒</span>
+                <input 
+                    type="password" 
+                    id="password"
+                    class="input" 
+                    placeholder="Enter your password"
+                    style="position: relative; z-index: 20;"
+                    onkeyup="console.log('Password input:', this.value)"
+                >
+                <button 
+                    type="button" 
+                    class="show-hide" 
+                    onclick="togglePassword()"
+                >
+                    👁️
+                </button>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <button type="button" onclick="testInputs()" style="padding: 10px 20px; background: #6366f1; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                Test Inputs
+            </button>
+        </div>
+        
+        <div id="results" style="margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+            <p>Results will appear here...</p>
+        </div>
+    </form>
+    
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const isPassword = passwordField.type === 'password';
+            passwordField.type = isPassword ? 'text' : 'password';
+            console.log('Password visibility toggled:', !isPassword);
+        }
+        
+        function testInputs() {
+            const email = document.querySelector('input[type="email"]').value;
+            const password = document.getElementById('password').value;
+            
+            const results = document.getElementById('results');
+            results.innerHTML = `
+                <h3>✅ Test Results:</h3>
+                <p><strong>Email:</strong> ${email || '(empty)'}</p>
+                <p><strong>Password:</strong> ${password || '(empty)'}</p>
+                <p><strong>Status:</strong> ${email && password ? 'Both inputs working! 🎉' : 'Please fill both fields'}</p>
+            `;
+            
+            console.log('Test results:', { email, password });
+        }
+        
+        // Auto-focus on email field for testing
+        window.onload = function() {
+            document.querySelector('input[type="email"]').focus();
+        };
+    </script>
+</body>
+</html>

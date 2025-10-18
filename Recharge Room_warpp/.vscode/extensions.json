@@ -1,0 +1,19 @@
+{
+    "recommendations": [
+        "ms-python.python",
+        "ms-python.flake8",
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-json",
+        "formulahendry.auto-rename-tag",
+        "christian-kohler.path-intellisense",
+        "ms-vscode.powershell",
+        "ritwickdey.liveserver",
+        "ms-vscode-remote.remote-wsl",
+        "ms-vscode.live-server",
+        "rangav.vscode-thunder-client",
+        "ms-python.python-environment-manager",
+        "ms-toolsai.jupyter"
+    ]
+}
